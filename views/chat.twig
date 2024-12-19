@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+  
+  <br>
+  <button onclick="displayCategoryZ()">Display Category Z</button>
+  <br>
+ 
+
+  <script>
+
+  var socket = io();
+  
+
+
+socket.on('categoryZList', (data) => {
+  console.log(data);
+  data.forEach(item => {
+    var p = document.createElement('p');
+    p.innerText = `Modele: ${item.modele}, Categorie: ${item.categorie}, Date Fabrication: ${item.dateFabrication}, Prix: ${item.prix}`;
+    document.body.append(p);
+  });
+});
+
+
+socket.on('priceRangeList', (data) => {
+  console.log(data);
+  data.forEach(item => {
+    var p = document.createElement('p');
+    p.innerText = `Modele: ${item.modele}, Categorie: ${item.categorie}, Date Fabrication: ${item.dateFabrication}, Prix: ${item.prix}`;
+    document.body.append(p);
+  });
+});
+
+  
+  </script>
+</body>
+</html>
